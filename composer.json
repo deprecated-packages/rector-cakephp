@@ -1,5 +1,5 @@
 {
-    "name": "rector/rector-cackephp",
+    "name": "rector/rector-cakephp",
     "license": "MIT",
     "description": "Rector upgrades rules for CakePHP",
     "require": {
