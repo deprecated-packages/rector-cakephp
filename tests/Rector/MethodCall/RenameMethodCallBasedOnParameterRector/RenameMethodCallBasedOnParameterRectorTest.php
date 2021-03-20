@@ -19,7 +19,7 @@ final class RenameMethodCallBasedOnParameterRectorTest extends AbstractRectorTes
     }
 
     /**
-     * @return Iterator
+     * @return Iterator<SmartFileInfo>
      */
     public function provideData(): iterable
     {
