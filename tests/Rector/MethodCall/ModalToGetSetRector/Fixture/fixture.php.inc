@@ -1,8 +1,8 @@
 <?php
 
-namespace aRector\CakePHP\Tests\Rector\MethodCall\ModalToGetSetRector\Fixture;
+namespace Rector\CakePHP\Tests\Rector\MethodCall\ModalToGetSetRector\Fixture;
 
-use aRector\CakePHP\Tests\Rector\MethodCall\ModalToGetSetRector\Source;
+use Rector\CakePHP\Tests\Rector\MethodCall\ModalToGetSetRector\Source;
 
 class Fixture
 {
@@ -22,9 +22,9 @@ class Fixture
 -----
 <?php
 
-namespace aRector\CakePHP\Tests\Rector\MethodCall\ModalToGetSetRector\Fixture;
+namespace Rector\CakePHP\Tests\Rector\MethodCall\ModalToGetSetRector\Fixture;
 
-use aRector\CakePHP\Tests\Rector\MethodCall\ModalToGetSetRector\Source;
+use Rector\CakePHP\Tests\Rector\MethodCall\ModalToGetSetRector\Source;
 
 class Fixture
 {

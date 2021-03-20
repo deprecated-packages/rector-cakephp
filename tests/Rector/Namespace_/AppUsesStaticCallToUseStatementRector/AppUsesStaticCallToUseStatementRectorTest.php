@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace aRector\CakePHP\Tests\Rector\Namespace_\AppUsesStaticCallToUseStatementRector;
+namespace Rector\CakePHP\Tests\Rector\Namespace_\AppUsesStaticCallToUseStatementRector;
 
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;

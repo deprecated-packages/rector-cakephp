@@ -48,8 +48,7 @@ final class CakePHPFullyQualifiedClassNameResolver
     }
 
     /**
-     * This value used to be directory
-     * So "/" in path should be "\" in namespace
+     * This value used to be directory So "/" in path should be "\" in namespace
      */
     public function resolveFromPseudoNamespaceAndShortClassName(string $pseudoNamespace, string $shortClass): string
     {

@@ -1,10 +1,10 @@
 <?php
 
 use Rector\CakePHP\Rector\MethodCall\ArrayToFluentCallRector;
+use Rector\CakePHP\Tests\Rector\MethodCall\ArrayToFluentCallRector\Source\ConfigurableClass;
+use Rector\CakePHP\Tests\Rector\MethodCall\ArrayToFluentCallRector\Source\FactoryClass;
 use Rector\CakePHP\ValueObject\ArrayToFluentCall;
 use Rector\CakePHP\ValueObject\FactoryMethod;
-use aRector\CakePHP\Tests\Rector\MethodCall\ArrayToFluentCallRector\Source\ConfigurableClass;
-use aRector\CakePHP\Tests\Rector\MethodCall\ArrayToFluentCallRector\Source\FactoryClass;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\SymfonyPhpConfig\ValueObjectInliner;
 

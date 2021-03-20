@@ -108,6 +108,10 @@ CODE_SAMPLE
         $resolvedNames = [];
         foreach ($names as $name) {
             $classShortName = $this->getName($name);
+            if ($classShortName === null) {
+                continue;
+            }
+
             $resolvedName = $this->implicitNameResolver->resolve($classShortName);
             if ($resolvedName === null) {
                 continue;

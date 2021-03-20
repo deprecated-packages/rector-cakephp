@@ -1,8 +1,8 @@
 <?php
 
-namespace aRector\CakePHP\Tests\Rector\MethodCall\RenameMethodCallBasedOnParameterRector\Fixture;
+namespace Rector\CakePHP\Tests\Rector\MethodCall\RenameMethodCallBasedOnParameterRector\Fixture;
 
-use aRector\CakePHP\Tests\Rector\MethodCall\RenameMethodCallBasedOnParameterRector\Source;
+use Rector\CakePHP\Tests\Rector\MethodCall\RenameMethodCallBasedOnParameterRector\Source;
 
 function renameMethodCallBasedOnParameterNoop()
 {

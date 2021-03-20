@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace aRector\CakePHP\Tests\Rector\MethodCall\RenameMethodCallBasedOnParameterRector;
+namespace Rector\CakePHP\Tests\Rector\MethodCall\RenameMethodCallBasedOnParameterRector;
 
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;

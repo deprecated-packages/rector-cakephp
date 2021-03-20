@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace aRector\CakePHP\Tests\Rector\FileWithoutNamespace\ImplicitShortClassNameUseStatementRector;
+namespace Rector\CakePHP\Tests\Rector\FileWithoutNamespace\ImplicitShortClassNameUseStatementRector;
 
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
