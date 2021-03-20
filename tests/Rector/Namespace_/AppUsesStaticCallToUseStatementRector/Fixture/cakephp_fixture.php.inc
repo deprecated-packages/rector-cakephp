@@ -21,7 +21,7 @@ class CakePhpFixture
 namespace Rector\CakePHP\Tests\Rector\Namespace_\AppUsesStaticCallToUseStatementRector\Fixture;
 
 use App\Network\Http\HttpSocket;
-use Cake\Utility\Xml;
+use Utility\Xml;
 use Cake\Controller\Component;
 use Data\Lib\SomeLib;
 use PluginName\Currency\CurrencyLib;

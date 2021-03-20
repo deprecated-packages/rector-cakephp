@@ -21,7 +21,10 @@
     "autoload-dev": {
         "psr-4": {
             "Rector\\CakePHP\\Tests\\": "tests"
-        }
+        },
+        "classmap": [
+            "tests/Rector/FileWithoutNamespace/ImplicitShortClassNameUseStatementRector/Source"
+        ]
     },
     "scripts": {
         "phpstan": "vendor/bin/phpstan analyse --ansi --error-format symplify",
