@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Tests\CakePHP\Rector\MethodCall\RenameMethodCallBasedOnParameterRector\Source;
+namespace aRector\CakePHP\Tests\Rector\MethodCall\RenameMethodCallBasedOnParameterRector\Source;
 
 final class SomeModelType
 {

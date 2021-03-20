@@ -19,7 +19,7 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 use Webmozart\Assert\Assert;
 
 /**
- * @see \Rector\Tests\CakePHP\Rector\MethodCall\ArrayToFluentCallRector\ArrayToFluentCallRectorTest
+ * @see \aRector\CakePHP\Tests\Rector\MethodCall\ArrayToFluentCallRector\ArrayToFluentCallRectorTest
  */
 final class ArrayToFluentCallRector extends AbstractRector implements ConfigurableRectorInterface
 {

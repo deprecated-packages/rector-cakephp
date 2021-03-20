@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Tests\CakePHP\Rector\Property\ChangeSnakedFixtureNameToPascal;
+namespace aRector\CakePHP\Tests\Rector\Property\ChangeSnakedFixtureNameToPascal;
 
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;

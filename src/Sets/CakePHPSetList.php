@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Sets;
+namespace Rector\CakePHP\Sets;
 
 use Rector\Set\Contract\SetListInterface;
 

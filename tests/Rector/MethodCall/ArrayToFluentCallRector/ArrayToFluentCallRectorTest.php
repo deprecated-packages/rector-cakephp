@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Tests\CakePHP\Rector\MethodCall\ArrayToFluentCallRector;
+namespace aRector\CakePHP\Tests\Rector\MethodCall\ArrayToFluentCallRector;
 
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;

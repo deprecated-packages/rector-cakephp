@@ -3,8 +3,8 @@
 use Rector\CakePHP\Rector\MethodCall\ArrayToFluentCallRector;
 use Rector\CakePHP\ValueObject\ArrayToFluentCall;
 use Rector\CakePHP\ValueObject\FactoryMethod;
-use Rector\Tests\CakePHP\Rector\MethodCall\ArrayToFluentCallRector\Source\ConfigurableClass;
-use Rector\Tests\CakePHP\Rector\MethodCall\ArrayToFluentCallRector\Source\FactoryClass;
+use aRector\CakePHP\Tests\Rector\MethodCall\ArrayToFluentCallRector\Source\ConfigurableClass;
+use aRector\CakePHP\Tests\Rector\MethodCall\ArrayToFluentCallRector\Source\FactoryClass;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\SymfonyPhpConfig\ValueObjectInliner;
 
