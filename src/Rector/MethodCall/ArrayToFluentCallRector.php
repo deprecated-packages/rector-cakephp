@@ -75,7 +75,8 @@ final class ArticlesTable extends Table
     }
 }
 CODE_SAMPLE
-                , [
+                ,
+                [
                     self::ARRAYS_TO_FLUENT_CALLS => [
                         new ArrayToFluentCall('ArticlesTable', [
                             'foreignKey' => 'setForeignKey',

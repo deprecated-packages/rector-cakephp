@@ -58,7 +58,8 @@ $config = $object->getConfig('key');
 $object->setConfig('key', 'value');
 $object->setConfig(['key' => 'value']);
 CODE_SAMPLE
-                    , [
+                    ,
+                    [
                         self::UNPREFIXED_METHODS_TO_GET_SET => [
                             new ModalToGetSet('InstanceConfigTrait', 'config', 'getConfig', 'setConfig'),
                         ],
