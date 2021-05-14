@@ -10,6 +10,10 @@ parameters:
         - */Source/*
         - *Source/*
 
+    reportUnmatchedIgnoredErrors: false
+
     ignoreErrors:
         # finder known type
         - '#Method Rector\\CakePHP\\Rector\\FileWithoutNamespace\\ImplicitShortClassNameUseStatementRector\:\:findNames\(\) should return array<PhpParser\\Node\\Name\> but returns array<PhpParser\\Node\>#'
+
+        - '#This property type might be inlined to PHP\. Do you have confidence it is correct\? Put it here#'
