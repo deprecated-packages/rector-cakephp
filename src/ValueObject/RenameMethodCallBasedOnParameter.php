@@ -8,32 +8,12 @@ use PHPStan\Type\ObjectType;
 
 final class RenameMethodCallBasedOnParameter
 {
-    /**
-     * @var string
-     */
-    private $oldMethod;
-
-    /**
-     * @var string
-     */
-    private $parameterName;
-
-    /**
-     * @var string
-     */
-    private $newMethod;
-
-    /**
-     * @var string
-     */
-    private $oldClass;
-
-    public function __construct(string $oldClass, string $oldMethod, string $parameterName, string $newMethod)
-    {
-        $this->oldMethod = $oldMethod;
-        $this->parameterName = $parameterName;
-        $this->newMethod = $newMethod;
-        $this->oldClass = $oldClass;
+    public function __construct(
+        private string $oldClass,
+        private string $oldMethod,
+        private string $parameterName,
+        private string $newMethod
+    ) {
     }
 
     public function getOldMethod(): string

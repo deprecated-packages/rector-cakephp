@@ -31,20 +31,10 @@ final class CakePHPFullyQualifiedClassNameResolver
      */
     private const PLUGIN_OR_LIB_REGEX = '#(Plugin|Lib)#';
 
-    /**
-     * @var ImplicitNameResolver
-     */
-    private $implicitNameResolver;
-
-    /**
-     * @var ReflectionProvider
-     */
-    private $reflectionProvider;
-
-    public function __construct(ImplicitNameResolver $implicitNameResolver, ReflectionProvider $reflectionProvider)
-    {
-        $this->implicitNameResolver = $implicitNameResolver;
-        $this->reflectionProvider = $reflectionProvider;
+    public function __construct(
+        private ImplicitNameResolver $implicitNameResolver,
+        private ReflectionProvider $reflectionProvider
+    ) {
     }
 
     /**
