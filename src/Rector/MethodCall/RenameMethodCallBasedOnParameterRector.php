@@ -30,7 +30,7 @@ final class RenameMethodCallBasedOnParameterRector extends AbstractRector implem
     /**
      * @var RenameMethodCallBasedOnParameter[]
      */
-    private $callsWithParamRenames = [];
+    private array $callsWithParamRenames = [];
 
     public function getRuleDefinition(): RuleDefinition
     {

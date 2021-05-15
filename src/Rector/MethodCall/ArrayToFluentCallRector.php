@@ -36,12 +36,12 @@ final class ArrayToFluentCallRector extends AbstractRector implements Configurab
     /**
      * @var ArrayToFluentCall[]
      */
-    private $arraysToFluentCalls = [];
+    private array $arraysToFluentCalls = [];
 
     /**
      * @var FactoryMethod[]
      */
-    private $factoryMethods = [];
+    private array $factoryMethods = [];
 
     public function getRuleDefinition(): RuleDefinition
     {

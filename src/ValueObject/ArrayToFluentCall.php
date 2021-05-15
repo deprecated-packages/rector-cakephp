@@ -7,22 +7,12 @@ namespace Rector\CakePHP\ValueObject;
 final class ArrayToFluentCall
 {
     /**
-     * @var string
-     */
-    private $class;
-
-    /**
-     * @var array<string, string>
-     */
-    private $arrayKeysToFluentCalls = [];
-
-    /**
      * @param array<string, string> $arrayKeysToFluentCalls
      */
-    public function __construct(string $class, array $arrayKeysToFluentCalls)
-    {
-        $this->class = $class;
-        $this->arrayKeysToFluentCalls = $arrayKeysToFluentCalls;
+    public function __construct(
+        private string $class,
+        private array $arrayKeysToFluentCalls
+    ) {
     }
 
     public function getClass(): string

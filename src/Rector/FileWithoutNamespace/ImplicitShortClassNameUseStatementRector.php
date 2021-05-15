@@ -21,14 +21,9 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
  */
 final class ImplicitShortClassNameUseStatementRector extends AbstractRector
 {
-    /**
-     * @var ImplicitNameResolver
-     */
-    private $implicitNameResolver;
-
-    public function __construct(ImplicitNameResolver $implicitNameResolver)
-    {
-        $this->implicitNameResolver = $implicitNameResolver;
+    public function __construct(
+        private ImplicitNameResolver $implicitNameResolver
+    ) {
     }
 
     public function getRuleDefinition(): RuleDefinition
