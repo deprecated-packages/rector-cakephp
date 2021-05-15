@@ -24,14 +24,9 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
  */
 final class AppUsesStaticCallToUseStatementRector extends AbstractRector
 {
-    /**
-     * @var CakePHPFullyQualifiedClassNameResolver
-     */
-    private $cakePHPFullyQualifiedClassNameResolver;
-
-    public function __construct(CakePHPFullyQualifiedClassNameResolver $cakePHPFullyQualifiedClassNameResolver)
-    {
-        $this->cakePHPFullyQualifiedClassNameResolver = $cakePHPFullyQualifiedClassNameResolver;
+    public function __construct(
+        private CakePHPFullyQualifiedClassNameResolver $cakePHPFullyQualifiedClassNameResolver
+    ) {
     }
 
     public function getRuleDefinition(): RuleDefinition

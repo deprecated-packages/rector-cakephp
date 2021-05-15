@@ -10,23 +10,13 @@ use PhpParser\Node\Expr\ArrayItem;
 final class ArrayItemsAndFluentClass
 {
     /**
-     * @var ArrayItem[]
-     */
-    private $arrayItems = [];
-
-    /**
-     * @var array<string, Expr>
-     */
-    private $fluentCalls = [];
-
-    /**
      * @param ArrayItem[] $arrayItems
      * @param array<string, Expr> $fluentCalls
      */
-    public function __construct(array $arrayItems, array $fluentCalls)
-    {
-        $this->arrayItems = $arrayItems;
-        $this->fluentCalls = $fluentCalls;
+    public function __construct(
+        private array $arrayItems,
+        private array $fluentCalls
+    ) {
     }
 
     /**

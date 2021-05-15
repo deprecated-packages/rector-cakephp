@@ -8,50 +8,20 @@ use PHPStan\Type\ObjectType;
 
 final class ModalToGetSet
 {
-    /**
-     * @var string
-     */
-    private $type;
+    private string $getMethod;
 
-    /**
-     * @var string
-     */
-    private $unprefixedMethod;
-
-    /**
-     * @var string
-     */
-    private $getMethod;
-
-    /**
-     * @var string
-     */
-    private $setMethod;
-
-    /**
-     * @var int
-     */
-    private $minimalSetterArgumentCount;
-
-    /**
-     * @var string|null
-     */
-    private $firstArgumentType;
+    private string $setMethod;
 
     public function __construct(
-        string $type,
-        string $unprefixedMethod,
+        private string $type,
+        private string $unprefixedMethod,
         ?string $getMethod = null,
         ?string $setMethod = null,
-        int $minimalSetterArgumentCount = 1,
-        ?string $firstArgumentType = null
+        private int $minimalSetterArgumentCount = 1,
+        private ?string $firstArgumentType = null
     ) {
-        $this->type = $type;
-        $this->unprefixedMethod = $unprefixedMethod;
         $this->getMethod = $getMethod ?? 'get' . ucfirst($unprefixedMethod);
         $this->setMethod = $setMethod ?? 'set' . ucfirst($unprefixedMethod);
-        $this->minimalSetterArgumentCount = $minimalSetterArgumentCount;
-        $this->firstArgumentType = $firstArgumentType;
     }
 
     public function getObjectType(): ObjectType

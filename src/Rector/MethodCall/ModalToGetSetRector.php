@@ -31,7 +31,7 @@ final class ModalToGetSetRector extends AbstractRector implements ConfigurableRe
     /**
      * @var ModalToGetSet[]
      */
-    private $unprefixedMethodsToGetSet = [];
+    private array $unprefixedMethodsToGetSet = [];
 
     public function getRuleDefinition(): RuleDefinition
     {
