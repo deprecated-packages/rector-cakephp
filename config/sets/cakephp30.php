@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Rector\CakePHP\Rector\FileWithoutNamespace\ImplicitShortClassNameUseStatementRector;
 use Rector\CakePHP\Rector\Namespace_\AppUsesStaticCallToUseStatementRector;
 use Rector\Renaming\Rector\Name\RenameClassRector;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -12,8 +11,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     # @see https://github.com/cakephp/upgrade/tree/master/src/Shell/Task
     $services->set(AppUsesStaticCallToUseStatementRector::class);
-
-    $services->set(ImplicitShortClassNameUseStatementRector::class);
 
     $services->set(RenameClassRector::class)
         ->call('configure', [[
