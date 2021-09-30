@@ -64,7 +64,7 @@ final class CakePHPFullyQualifiedClassNameResolver
         }
 
         // C. is not plugin nor lib custom App class?
-        if (Strings::contains($pseudoNamespace, '\\') && ! Strings::match(
+        if (\str_contains($pseudoNamespace, '\\') && ! Strings::match(
             $pseudoNamespace,
             self::PLUGIN_OR_LIB_REGEX
         )) {
