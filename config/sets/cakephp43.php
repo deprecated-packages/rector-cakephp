@@ -33,21 +33,20 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set(MethodCallToAnotherMethodCallWithArgumentsRector::class)
         ->call('configure', [[
-            MethodCallToAnotherMethodCallWithArgumentsRector::METHOD_CALL_RENAMES_WITH_ADDED_ARGUMENTS => ValueObjectInliner::inline([
-                
-                new MethodCallToAnotherMethodCallWithArguments(
-                    'Cake\Database\DriverInterface',
-                    'supportsQuoting',
-                    'supports',
-                    ['quote'],
-                ),
-                new MethodCallToAnotherMethodCallWithArguments(
-                    'Cake\Database\DriverInterface',
-                    'supportsSavepoints',
-                    'supports',
-                    ['savepoint']
-                ),
-            
-            ]),
+            MethodCallToAnotherMethodCallWithArgumentsRector::METHOD_CALL_RENAMES_WITH_ADDED_ARGUMENTS =>
+                ValueObjectInliner::inline([
+                    new MethodCallToAnotherMethodCallWithArguments(
+                        'Cake\Database\DriverInterface',
+                        'supportsQuoting',
+                        'supports',
+                        ['quote'],
+                    ),
+                    new MethodCallToAnotherMethodCallWithArguments(
+                        'Cake\Database\DriverInterface',
+                        'supportsSavepoints',
+                        'supports',
+                        ['savepoint']
+                    ),
+                ]),
         ]]);
 };
