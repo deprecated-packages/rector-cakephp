@@ -90,7 +90,7 @@ CODE_SAMPLE
                 return false;
             }
 
-            $callerType = $this->nodeTypeResolver->resolve($node->class);
+            $callerType = $this->nodeTypeResolver->getType($node->class);
             if (! $callerType->isSuperTypeOf(new ObjectType('App'))->yes()) {
                 return false;
             }
