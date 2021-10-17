@@ -41,9 +41,7 @@ $users = $this->fetchTable('Users');
 CODE_SAMPLE
                     ,
                     [
-                        self::REMOVE_INTERMEDIARY_METHOD => [
-                            new self('getTableLocator', 'get', 'fetchTable'),
-                        ],
+                        self::REMOVE_INTERMEDIARY_METHOD => [new self('getTableLocator', 'get', 'fetchTable')],
                     ]
                 ),
             ]
