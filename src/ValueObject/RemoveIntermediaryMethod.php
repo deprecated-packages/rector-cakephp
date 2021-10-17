@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\CakePHP\ValueObject;
 
-use PHPStan\Type\ObjectType;
-
 final class RemoveIntermediaryMethod
 {
     public function __construct(
@@ -13,11 +11,6 @@ final class RemoveIntermediaryMethod
         private string $secondMethod,
         private string $finalMethod,
     ) {
-    }
-
-    public function getObjectType(): ObjectType
-    {
-        return new ObjectType($this->type);
     }
 
     public function getFirstMethod(): string

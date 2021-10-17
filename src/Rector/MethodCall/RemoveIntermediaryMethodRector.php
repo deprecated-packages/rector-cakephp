@@ -22,6 +22,11 @@ use Webmozart\Assert\Assert;
 final class RemoveIntermediaryMethodRector extends AbstractRector implements ConfigurableRectorInterface
 {
     /**
+     * @var \Rector\CakePHP\ValueObject\RemoveIntermediaryMethod[]
+     */
+    private $replacements = [];
+
+    /**
      * @var string
      */
     public const REMOVE_INTERMEDIARY_METHOD = 'remove_intermediary_method';
@@ -41,7 +46,7 @@ $users = $this->fetchTable('Users');
 CODE_SAMPLE
                     ,
                     [
-                        self::REMOVE_INTERMEDIARY_METHOD => [new self('getTableLocator', 'get', 'fetchTable')],
+                        self::REMOVE_INTERMEDIARY_METHOD => [new RemoveIntermediaryMethod('getTableLocator', 'get', 'fetchTable')],
                     ]
                 ),
             ]
@@ -65,15 +70,20 @@ CODE_SAMPLE
         if (! $replacement instanceof RemoveIntermediaryMethod) {
             return null;
         }
-        $target = $node->var->var;
+        /** @var MethodCall $var */
+        $var = $node->var;
+        $target = $var->var;
 
         return new MethodCall($target, $replacement->getFinalMethod(), $node->args);
     }
 
     public function configure(array $configuration): void
     {
+        /** @var \Rector\CakePHP\ValueObject\RemoveIntermediaryMethod[] $replacements */
         $replacements = $configuration[self::REMOVE_INTERMEDIARY_METHOD] ?? [];
         Assert::allIsInstanceOf($replacements, RemoveIntermediaryMethod::class);
+
+        /** @var \Rector\CakePHP\ValueObject\RemoveIntermediaryMethod[] $replacements */
         $this->replacements = $replacements;
     }
 
