@@ -24,7 +24,7 @@ final class RemoveIntermediaryMethodRector extends AbstractRector implements Con
     /**
      * @var \Rector\CakePHP\ValueObject\RemoveIntermediaryMethod[]
      */
-    private $replacements = [];
+    private array $replacements = [];
 
     /**
      * @var string
