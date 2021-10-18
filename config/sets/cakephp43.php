@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Rector\CakePHP\Rector\MethodCall\RemoveIntermediaryMethodRector;
+use Rector\CakePHP\ValueObject\RemoveIntermediaryMethod;
 use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Renaming\ValueObject\MethodCallRename;
 use Rector\Transform\Rector\Assign\PropertyFetchToMethodCallRector;
@@ -29,6 +31,13 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 new PropertyFetchToMethodCall('Cake\Network\Socket', 'encrypted', 'isEncrypted'),
                 new PropertyFetchToMethodCall('Cake\Network\Socket', 'lastError', 'lastError'),
             ]),
+        ]]);
+
+    $services->set(RemoveIntermediaryMethodRector::class)
+        ->call('configure', [[
+            RemoveIntermediaryMethodRector::REMOVE_INTERMEDIARY_METHOD => ValueObjectInliner::inline([
+                new RemoveIntermediaryMethod('getTableLocator', 'get', 'fetchTable'),
+            ])
         ]]);
 
     $services->set(MethodCallToAnotherMethodCallWithArgumentsRector::class)

@@ -32,7 +32,7 @@ final class RemoveIntermediaryMethodRector extends AbstractRector implements Con
     /**
      * @var \Rector\CakePHP\ValueObject\RemoveIntermediaryMethod[]
      */
-    private $removeIntermediaryMethod = [];
+    private array $removeIntermediaryMethod = [];
 
     public function __construct(
         private FluentChainMethodCallNodeAnalyzer $fluentChainMethodCallNodeAnalyzer
@@ -111,7 +111,6 @@ CODE_SAMPLE
         }
         if (
             (! $methodCall->name instanceof Identifier) ||
-            (! $methodCall->var instanceof MethodCall) ||
             (! $methodCall->var->name instanceof Identifier)
         ) {
             return null;
