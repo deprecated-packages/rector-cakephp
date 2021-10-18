@@ -37,7 +37,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->call('configure', [[
             RemoveIntermediaryMethodRector::REMOVE_INTERMEDIARY_METHOD => ValueObjectInliner::inline([
                 new RemoveIntermediaryMethod('getTableLocator', 'get', 'fetchTable'),
-            ])
+            ]),
         ]]);
 
     $services->set(MethodCallToAnotherMethodCallWithArgumentsRector::class)

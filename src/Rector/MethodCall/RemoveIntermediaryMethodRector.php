@@ -109,9 +109,11 @@ CODE_SAMPLE
         if (! $this->nodeNameResolver->isName($rootMethodCall->var, 'this')) {
             return null;
         }
+        /** @var MethodCall $var */
+        $var = $methodCall->var;
         if (
             (! $methodCall->name instanceof Identifier) ||
-            (! $methodCall->var->name instanceof Identifier)
+            (! $var->name instanceof Identifier)
         ) {
             return null;
         }
