@@ -93,7 +93,6 @@ CODE_SAMPLE
         $replacements = $configuration[self::REMOVE_INTERMEDIARY_METHOD] ?? [];
         Assert::allIsInstanceOf($replacements, RemoveIntermediaryMethod::class);
 
-        /** @var \Rector\CakePHP\ValueObject\RemoveIntermediaryMethod[] $replacements */
         $this->removeIntermediaryMethod = $replacements;
     }
 
@@ -122,7 +121,7 @@ CODE_SAMPLE
             if (! $this->isName($methodCall->name, $replacement->getSecondMethod())) {
                 continue;
             }
-            if (! $this->isName($methodCall->var->name, $replacement->getFirstMethod())) {
+            if (! $this->isName($var->name, $replacement->getFirstMethod())) {
                 continue;
             }
 
