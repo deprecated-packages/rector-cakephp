@@ -6,9 +6,12 @@ namespace Rector\CakePHP\Rector\MethodCall;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\MethodCall;
+use PhpParser\Node\Expr\Variable;
+use PhpParser\Node\Identifier;
 use Rector\CakePHP\ValueObject\RemoveIntermediaryMethod;
 use Rector\Core\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Core\Rector\AbstractRector;
+use Rector\Defluent\NodeAnalyzer\FluentChainMethodCallNodeAnalyzer;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\ConfiguredCodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 use Webmozart\Assert\Assert;
@@ -22,14 +25,19 @@ use Webmozart\Assert\Assert;
 final class RemoveIntermediaryMethodRector extends AbstractRector implements ConfigurableRectorInterface
 {
     /**
-     * @var \Rector\CakePHP\ValueObject\RemoveIntermediaryMethod[]
-     */
-    private array $replacements = [];
-
-    /**
      * @var string
      */
     public const REMOVE_INTERMEDIARY_METHOD = 'remove_intermediary_method';
+
+    /**
+     * @var \Rector\CakePHP\ValueObject\RemoveIntermediaryMethod[]
+     */
+    private $removeIntermediaryMethod = [];
+
+    public function __construct(
+        private FluentChainMethodCallNodeAnalyzer $fluentChainMethodCallNodeAnalyzer
+    ) {
+    }
 
     public function getRuleDefinition(): RuleDefinition
     {
@@ -46,7 +54,9 @@ $users = $this->fetchTable('Users');
 CODE_SAMPLE
                     ,
                     [
-                        self::REMOVE_INTERMEDIARY_METHOD => [new RemoveIntermediaryMethod('getTableLocator', 'get', 'fetchTable')],
+                        self::REMOVE_INTERMEDIARY_METHOD => [
+                            new RemoveIntermediaryMethod('getTableLocator', 'get', 'fetchTable'),
+                        ],
                     ]
                 ),
             ]
@@ -84,16 +94,31 @@ CODE_SAMPLE
         Assert::allIsInstanceOf($replacements, RemoveIntermediaryMethod::class);
 
         /** @var \Rector\CakePHP\ValueObject\RemoveIntermediaryMethod[] $replacements */
-        $this->replacements = $replacements;
+        $this->removeIntermediaryMethod = $replacements;
     }
 
     private function matchTypeAndMethodName(MethodCall $methodCall): ?RemoveIntermediaryMethod
     {
-        foreach ($this->replacements as $replacement) {
+        $rootMethodCall = $this->fluentChainMethodCallNodeAnalyzer->resolveRootMethodCall($methodCall);
+        if (! $rootMethodCall instanceof MethodCall) {
+            return null;
+        }
+        if (! $rootMethodCall->var instanceof Variable) {
+            return null;
+        }
+        if (! $this->nodeNameResolver->isName($rootMethodCall->var, 'this')) {
+            return null;
+        }
+        if (
+            (! $methodCall->name instanceof Identifier) ||
+            (! $methodCall->var instanceof MethodCall) ||
+            (! $methodCall->var->name instanceof Identifier)
+        ) {
+            return null;
+        }
+
+        foreach ($this->removeIntermediaryMethod as $replacement) {
             if (! $this->isName($methodCall->name, $replacement->getSecondMethod())) {
-                continue;
-            }
-            if (! ($methodCall->var instanceof MethodCall)) {
                 continue;
             }
             if (! $this->isName($methodCall->var->name, $replacement->getFirstMethod())) {
