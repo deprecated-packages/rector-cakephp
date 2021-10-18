@@ -30,7 +30,7 @@ final class RemoveIntermediaryMethodRector extends AbstractRector implements Con
     public const REMOVE_INTERMEDIARY_METHOD = 'remove_intermediary_method';
 
     /**
-     * @var \Rector\CakePHP\ValueObject\RemoveIntermediaryMethod[]
+     * @var RemoveIntermediaryMethod[]
      */
     private array $removeIntermediaryMethod = [];
 
@@ -89,7 +89,7 @@ CODE_SAMPLE
 
     public function configure(array $configuration): void
     {
-        /** @var \Rector\CakePHP\ValueObject\RemoveIntermediaryMethod[] $replacements */
+        /** @var RemoveIntermediaryMethod[] $replacements */
         $replacements = $configuration[self::REMOVE_INTERMEDIARY_METHOD] ?? [];
         Assert::allIsInstanceOf($replacements, RemoveIntermediaryMethod::class);
 
