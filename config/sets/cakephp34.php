@@ -5,8 +5,6 @@ declare(strict_types=1);
 use Rector\CakePHP\Rector\MethodCall\ModalToGetSetRector;
 use Rector\CakePHP\ValueObject\ModalToGetSet;
 use Rector\Core\ValueObject\Visibility;
-use Rector\Defluent\Rector\ClassMethod\NormalToFluentRector;
-use Rector\Defluent\ValueObject\NormalToFluent;
 use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Renaming\Rector\Name\RenameClassRector;
 use Rector\Renaming\Rector\PropertyFetch\RenamePropertyRector;
@@ -234,32 +232,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             RenameClassRector::OLD_TO_NEW_CLASSES => [
                 'Cake\Database\Schema\Table' => 'Cake\Database\Schema\TableSchema',
             ],
-        ]]);
-
-    $services->set(NormalToFluentRector::class)
-        ->call('configure', [[
-            NormalToFluentRector::CALLS_TO_FLUENT => ValueObjectInliner::inline([
-                new NormalToFluent('Cake\Network\Response', [
-                    'withLocation',
-                    'withHeader',
-                    'withDisabledCache',
-                    'withType',
-                    'withCharset',
-                    'withCache',
-                    'withModified',
-                    'withExpires',
-                    'withSharable',
-                    'withMaxAge',
-                    'withVary',
-                    'withEtag',
-                    'withCompression',
-                    'withLength',
-                    'withMustRevalidate',
-                    'withNotModified',
-                    'withCookie',
-                    'withFile',
-                    'withDownload',
-                ]),
-            ]),
         ]]);
 };

@@ -93,10 +93,15 @@ CODE_SAMPLE
         return $node;
     }
 
+    /**
+     * @param array<string, ModalToGetSet[]>  $configuration
+     */
     public function configure(array $configuration): void
     {
         $unprefixedMethodsToGetSet = $configuration[self::UNPREFIXED_METHODS_TO_GET_SET] ?? [];
         Assert::allIsInstanceOf($unprefixedMethodsToGetSet, ModalToGetSet::class);
+
+        /** @var ModalToGetSet[] $unprefixedMethodsToGetSet */
         $this->unprefixedMethodsToGetSet = $unprefixedMethodsToGetSet;
     }
 

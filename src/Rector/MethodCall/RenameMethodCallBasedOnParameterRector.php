@@ -87,11 +87,16 @@ CODE_SAMPLE
         return $node;
     }
 
+    /**
+     * @param array<string, RenameMethodCallBasedOnParameter[]> $configuration
+     */
     public function configure(array $configuration): void
     {
-        $callsWithParamNames = $configuration[self::CALLS_WITH_PARAM_RENAMES] ?? [];
-        Assert::allIsInstanceOf($callsWithParamNames, RenameMethodCallBasedOnParameter::class);
-        $this->callsWithParamRenames = $callsWithParamNames;
+        $callsWithParamRenames = $configuration[self::CALLS_WITH_PARAM_RENAMES] ?? [];
+        Assert::allIsInstanceOf($callsWithParamRenames, RenameMethodCallBasedOnParameter::class);
+
+        /** @var RenameMethodCallBasedOnParameter[] $callsWithParamRenames */
+        $this->callsWithParamRenames = $callsWithParamRenames;
     }
 
     private function matchTypeAndMethodName(MethodCall $methodCall): ?RenameMethodCallBasedOnParameter

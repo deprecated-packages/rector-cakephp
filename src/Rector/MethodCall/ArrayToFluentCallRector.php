@@ -117,14 +117,21 @@ CODE_SAMPLE
         return null;
     }
 
+    /**
+     * @param array<string, ArrayToFluentCall|FactoryMethod> $configuration
+     */
     public function configure(array $configuration): void
     {
         $arraysToFluentCalls = $configuration[self::ARRAYS_TO_FLUENT_CALLS] ?? [];
         Assert::allIsInstanceOf($arraysToFluentCalls, ArrayToFluentCall::class);
+
+        /** @var ArrayToFluentCall[] $arraysToFluentCalls */
         $this->arraysToFluentCalls = $arraysToFluentCalls;
 
         $factoryMethods = $configuration[self::FACTORY_METHODS] ?? [];
         Assert::allIsInstanceOf($factoryMethods, FactoryMethod::class);
+
+        /** @var FactoryMethod[] $factoryMethods */
         $this->factoryMethods = $factoryMethods;
     }
 
