@@ -94,8 +94,6 @@ CODE_SAMPLE
     {
         $callsWithParamRenames = $configuration[self::CALLS_WITH_PARAM_RENAMES] ?? [];
         Assert::allIsInstanceOf($callsWithParamRenames, RenameMethodCallBasedOnParameter::class);
-
-        /** @var RenameMethodCallBasedOnParameter[] $callsWithParamRenames */
         $this->callsWithParamRenames = $callsWithParamRenames;
     }
 

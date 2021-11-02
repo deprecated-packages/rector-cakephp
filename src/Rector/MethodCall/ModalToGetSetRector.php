@@ -100,8 +100,6 @@ CODE_SAMPLE
     {
         $unprefixedMethodsToGetSet = $configuration[self::UNPREFIXED_METHODS_TO_GET_SET] ?? [];
         Assert::allIsInstanceOf($unprefixedMethodsToGetSet, ModalToGetSet::class);
-
-        /** @var ModalToGetSet[] $unprefixedMethodsToGetSet */
         $this->unprefixedMethodsToGetSet = $unprefixedMethodsToGetSet;
     }
 
