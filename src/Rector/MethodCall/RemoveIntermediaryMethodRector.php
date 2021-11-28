@@ -87,13 +87,17 @@ CODE_SAMPLE
         return new MethodCall($target, $replacement->getFinalMethod(), $node->args);
     }
 
+    /**
+     * @param mixed[] $configuration
+     */
     public function configure(array $configuration): void
     {
-        /** @var RemoveIntermediaryMethod[] $replacements */
-        $replacements = $configuration[self::REMOVE_INTERMEDIARY_METHOD] ?? [];
-        Assert::allIsInstanceOf($replacements, RemoveIntermediaryMethod::class);
+        $removeIntermediaryMethods = $configuration[self::REMOVE_INTERMEDIARY_METHOD] ?? $configuration;
 
-        $this->removeIntermediaryMethod = $replacements;
+        Assert::isArray($removeIntermediaryMethods);
+        Assert::allIsAOf($removeIntermediaryMethods, RemoveIntermediaryMethod::class);
+
+        $this->removeIntermediaryMethod = $removeIntermediaryMethods;
     }
 
     private function matchTypeAndMethodName(MethodCall $methodCall): ?RemoveIntermediaryMethod

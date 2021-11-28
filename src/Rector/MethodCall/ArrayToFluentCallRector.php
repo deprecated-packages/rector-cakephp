@@ -118,15 +118,18 @@ CODE_SAMPLE
     }
 
     /**
-     * @param array<string, ArrayToFluentCall|FactoryMethod> $configuration
+     * @param mixed[] $configuration
      */
     public function configure(array $configuration): void
     {
         $arraysToFluentCalls = $configuration[self::ARRAYS_TO_FLUENT_CALLS] ?? [];
+        Assert::isArray($arraysToFluentCalls);
         Assert::allIsInstanceOf($arraysToFluentCalls, ArrayToFluentCall::class);
+
         $this->arraysToFluentCalls = $arraysToFluentCalls;
 
         $factoryMethods = $configuration[self::FACTORY_METHODS] ?? [];
+        Assert::isArray($factoryMethods);
         Assert::allIsInstanceOf($factoryMethods, FactoryMethod::class);
         $this->factoryMethods = $factoryMethods;
     }
