@@ -88,12 +88,15 @@ CODE_SAMPLE
     }
 
     /**
-     * @param array<string, RenameMethodCallBasedOnParameter[]> $configuration
+     * @param mixed[] $configuration
      */
     public function configure(array $configuration): void
     {
-        $callsWithParamRenames = $configuration[self::CALLS_WITH_PARAM_RENAMES] ?? [];
+        $callsWithParamRenames = $configuration[self::CALLS_WITH_PARAM_RENAMES] ?? $configuration;
+
+        Assert::isArray($callsWithParamRenames);
         Assert::allIsInstanceOf($callsWithParamRenames, RenameMethodCallBasedOnParameter::class);
+
         $this->callsWithParamRenames = $callsWithParamRenames;
     }
 

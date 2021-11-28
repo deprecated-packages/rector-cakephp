@@ -94,12 +94,14 @@ CODE_SAMPLE
     }
 
     /**
-     * @param array<string, ModalToGetSet[]>  $configuration
+     * @param mixed[] $configuration
      */
     public function configure(array $configuration): void
     {
-        $unprefixedMethodsToGetSet = $configuration[self::UNPREFIXED_METHODS_TO_GET_SET] ?? [];
-        Assert::allIsInstanceOf($unprefixedMethodsToGetSet, ModalToGetSet::class);
+        $unprefixedMethodsToGetSet = $configuration[self::UNPREFIXED_METHODS_TO_GET_SET] ?? $configuration;
+        Assert::isArray($unprefixedMethodsToGetSet);
+        Assert::allIsAOf($unprefixedMethodsToGetSet, ModalToGetSet::class);
+
         $this->unprefixedMethodsToGetSet = $unprefixedMethodsToGetSet;
     }
 

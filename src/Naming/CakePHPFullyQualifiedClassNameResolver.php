@@ -7,6 +7,7 @@ namespace Rector\CakePHP\Naming;
 use Nette\Utils\Strings;
 use PHPStan\Reflection\ReflectionProvider;
 use Rector\CakePHP\ImplicitNameResolver;
+use Rector\Core\Util\StringUtils;
 
 /**
  * @inspired https://github.com/cakephp/upgrade/blob/756410c8b7d5aff9daec3fa1fe750a3858d422ac/src/Shell/Task/AppUsesTask.php
@@ -53,7 +54,7 @@ final class CakePHPFullyQualifiedClassNameResolver
 
         // Chop Lib out as locations moves those files to the top level.
         // But only if Lib is not the last folder.
-        if (Strings::match($pseudoNamespace, self::LIB_NAMESPACE_PART_REGEX)) {
+        if (StringUtils::isMatch($pseudoNamespace, self::LIB_NAMESPACE_PART_REGEX)) {
             $pseudoNamespace = Strings::replace($pseudoNamespace, '#\\\\Lib#', '');
         }
 
@@ -64,7 +65,7 @@ final class CakePHPFullyQualifiedClassNameResolver
         }
 
         // C. is not plugin nor lib custom App class?
-        if (\str_contains($pseudoNamespace, '\\') && ! Strings::match(
+        if (\str_contains($pseudoNamespace, '\\') && ! StringUtils::isMatch(
             $pseudoNamespace,
             self::PLUGIN_OR_LIB_REGEX
         )) {
