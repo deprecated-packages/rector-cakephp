@@ -12,7 +12,6 @@ use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\Property;
 use PhpParser\Node\Stmt\PropertyProperty;
 use Rector\Core\Rector\AbstractRector;
-use Stringy\Stringy;
 use Symfony\Component\String\UnicodeString;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
