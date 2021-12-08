@@ -13,6 +13,7 @@ use PhpParser\Node\Stmt\Property;
 use PhpParser\Node\Stmt\PropertyProperty;
 use Rector\Core\Rector\AbstractRector;
 use Stringy\Stringy;
+use Symfony\Component\String\UnicodeString;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
@@ -108,8 +109,8 @@ CODE_SAMPLE
 
         $pascalCaseTableParts = array_map(
             function (string $token): string {
-                $stringy = new Stringy($token);
-                return (string) $stringy->upperCamelize();
+                $tokenUnicodeString = new UnicodeString($token);
+                return ucfirst($tokenUnicodeString->camel()->toString());
             },
             $tableParts
         );
