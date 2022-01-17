@@ -14,8 +14,8 @@ final class ArrayItemsAndFluentClass
      * @param array<string, Expr> $fluentCalls
      */
     public function __construct(
-        private array $arrayItems,
-        private array $fluentCalls
+        private readonly array $arrayItems,
+        private readonly array $fluentCalls
     ) {
     }
 

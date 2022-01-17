@@ -9,10 +9,10 @@ use PHPStan\Type\ObjectType;
 final class FactoryMethod
 {
     public function __construct(
-        private string $type,
-        private string $method,
-        private string $newClass,
-        private int $position
+        private readonly string $type,
+        private readonly string $method,
+        private readonly string $newClass,
+        private readonly int $position
     ) {
     }
 
