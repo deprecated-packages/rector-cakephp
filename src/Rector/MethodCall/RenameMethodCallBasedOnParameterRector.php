@@ -25,7 +25,7 @@ final class RenameMethodCallBasedOnParameterRector extends AbstractRector implem
     /**
      * @var string
      */
-    public const CALLS_WITH_PARAM_RENAMES = 'calls_with_param_renames';
+    final public const CALLS_WITH_PARAM_RENAMES = 'calls_with_param_renames';
 
     /**
      * @var RenameMethodCallBasedOnParameter[]

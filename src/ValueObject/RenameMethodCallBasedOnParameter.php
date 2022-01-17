@@ -9,10 +9,10 @@ use PHPStan\Type\ObjectType;
 final class RenameMethodCallBasedOnParameter
 {
     public function __construct(
-        private string $oldClass,
-        private string $oldMethod,
-        private string $parameterName,
-        private string $newMethod
+        private readonly string $oldClass,
+        private readonly string $oldMethod,
+        private readonly string $parameterName,
+        private readonly string $newMethod
     ) {
     }
 

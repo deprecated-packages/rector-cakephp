@@ -26,7 +26,7 @@ final class ModalToGetSetRector extends AbstractRector implements ConfigurableRe
     /**
      * @var string
      */
-    public const UNPREFIXED_METHODS_TO_GET_SET = 'unprefixed_methods_to_get_set';
+    final public const UNPREFIXED_METHODS_TO_GET_SET = 'unprefixed_methods_to_get_set';
 
     /**
      * @var ModalToGetSet[]

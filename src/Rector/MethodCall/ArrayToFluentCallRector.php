@@ -26,12 +26,12 @@ final class ArrayToFluentCallRector extends AbstractRector implements Configurab
     /**
      * @var string
      */
-    public const ARRAYS_TO_FLUENT_CALLS = 'arrays_to_fluent_calls';
+    final public const ARRAYS_TO_FLUENT_CALLS = 'arrays_to_fluent_calls';
 
     /**
      * @var string
      */
-    public const FACTORY_METHODS = 'factory_methods';
+    final public const FACTORY_METHODS = 'factory_methods';
 
     /**
      * @var ArrayToFluentCall[]

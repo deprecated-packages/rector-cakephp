@@ -10,8 +10,8 @@ final class ArrayToFluentCall
      * @param array<string, string> $arrayKeysToFluentCalls
      */
     public function __construct(
-        private string $class,
-        private array $arrayKeysToFluentCalls
+        private readonly string $class,
+        private readonly array $arrayKeysToFluentCalls
     ) {
     }
 
