@@ -76,15 +76,15 @@ CODE_SAMPLE
      */
     public function refactor(Node $node): ?Node
     {
-        $replacement = $this->matchTypeAndMethodName($node);
-        if (! $replacement instanceof RemoveIntermediaryMethod) {
+        $removeIntermediaryMethod = $this->matchTypeAndMethodName($node);
+        if (! $removeIntermediaryMethod instanceof RemoveIntermediaryMethod) {
             return null;
         }
         /** @var MethodCall $var */
         $var = $node->var;
         $target = $var->var;
 
-        return new MethodCall($target, $replacement->getFinalMethod(), $node->args);
+        return new MethodCall($target, $removeIntermediaryMethod->getFinalMethod(), $node->args);
     }
 
     /**
@@ -121,15 +121,15 @@ CODE_SAMPLE
             return null;
         }
 
-        foreach ($this->removeIntermediaryMethod as $replacement) {
-            if (! $this->isName($methodCall->name, $replacement->getSecondMethod())) {
+        foreach ($this->removeIntermediaryMethod as $singleRemoveIntermediaryMethod) {
+            if (! $this->isName($methodCall->name, $singleRemoveIntermediaryMethod->getSecondMethod())) {
                 continue;
             }
-            if (! $this->isName($var->name, $replacement->getFirstMethod())) {
+            if (! $this->isName($var->name, $singleRemoveIntermediaryMethod->getFirstMethod())) {
                 continue;
             }
 
-            return $replacement;
+            return $singleRemoveIntermediaryMethod;
         }
 
         return null;

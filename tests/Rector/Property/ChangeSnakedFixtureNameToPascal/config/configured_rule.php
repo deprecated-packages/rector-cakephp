@@ -3,12 +3,13 @@
 declare(strict_types=1);
 
 use Rector\CakePHP\Rector\Property\ChangeSnakedFixtureNameToPascalRector;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(__DIR__ . '/../../../../../config/config.php');
+use Rector\Config\RectorConfig;
 
-    $services = $containerConfigurator->services();
+return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../../../../../config/config.php');
+
+    $services = $rectorConfig->services();
 
     $services->set(ChangeSnakedFixtureNameToPascalRector::class);
 };
