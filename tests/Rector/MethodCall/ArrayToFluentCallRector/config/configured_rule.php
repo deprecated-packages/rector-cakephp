@@ -3,13 +3,14 @@
 declare(strict_types=1);
 
 use Rector\CakePHP\Rector\MethodCall\ArrayToFluentCallRector;
+
 use Rector\CakePHP\Tests\Rector\MethodCall\ArrayToFluentCallRector\Source\ConfigurableClass;
 use Rector\CakePHP\Tests\Rector\MethodCall\ArrayToFluentCallRector\Source\FactoryClass;
 use Rector\CakePHP\ValueObject\ArrayToFluentCall;
 use Rector\CakePHP\ValueObject\FactoryMethod;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
+return static function (RectorConfig $containerConfigurator): void {
     $containerConfigurator->import(__DIR__ . '/../../../../../config/config.php');
 
     $services = $containerConfigurator->services();

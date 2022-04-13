@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Rector\CakePHP\Set\CakePHPLevelSetList;
+use Rector\CakePHP\Set\CakePHPSetList;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(\Rector\CakePHP\Set\CakePHPSetList::CAKEPHP_36);
-    $containerConfigurator->import(\Rector\CakePHP\Set\CakePHPLevelSetList::UP_TO_CAKEPHP_35);
+return static function (RectorConfig $containerConfigurator): void {
+    $containerConfigurator->import(CakePHPSetList::CAKEPHP_36);
+    $containerConfigurator->import(CakePHPLevelSetList::UP_TO_CAKEPHP_35);
 };

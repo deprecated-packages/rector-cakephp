@@ -3,10 +3,11 @@
 declare(strict_types=1);
 
 use Rector\CakePHP\Rector\Namespace_\AppUsesStaticCallToUseStatementRector;
-use Rector\Renaming\Rector\Name\RenameClassRector;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
+use Rector\Config\RectorConfig;
+use Rector\Renaming\Rector\Name\RenameClassRector;
+
+return static function (RectorConfig $containerConfigurator): void {
     $services = $containerConfigurator->services();
 
     # @see https://github.com/cakephp/upgrade/tree/master/src/Shell/Task

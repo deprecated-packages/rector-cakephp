@@ -3,10 +3,11 @@
 declare(strict_types=1);
 
 use Rector\CakePHP\Rector\MethodCall\RemoveIntermediaryMethodRector;
-use Rector\CakePHP\ValueObject\RemoveIntermediaryMethod;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
+use Rector\CakePHP\ValueObject\RemoveIntermediaryMethod;
+use Rector\Config\RectorConfig;
+
+return static function (RectorConfig $containerConfigurator): void {
     $containerConfigurator->import(__DIR__ . '/../../../../../config/config.php');
 
     $services = $containerConfigurator->services();
