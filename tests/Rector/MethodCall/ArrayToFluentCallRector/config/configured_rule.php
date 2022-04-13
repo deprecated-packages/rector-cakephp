@@ -10,10 +10,10 @@ use Rector\CakePHP\ValueObject\ArrayToFluentCall;
 use Rector\CakePHP\ValueObject\FactoryMethod;
 use Rector\Config\RectorConfig;
 
-return static function (RectorConfig $containerConfigurator): void {
-    $containerConfigurator->import(__DIR__ . '/../../../../../config/config.php');
+return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../../../../../config/config.php');
 
-    $services = $containerConfigurator->services();
+    $services = $rectorConfig->services();
     $services->set(ArrayToFluentCallRector::class)
         ->configure([
             ArrayToFluentCallRector::ARRAYS_TO_FLUENT_CALLS => [

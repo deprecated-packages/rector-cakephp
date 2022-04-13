@@ -106,12 +106,12 @@ CODE_SAMPLE
             return null;
         }
 
-        foreach ($this->arraysToFluentCalls as $arraysToFluentCall) {
-            if ($arraysToFluentCall->getClass() !== $factoryMethod->getNewClass()) {
+        foreach ($this->arraysToFluentCalls as $arrayToFluentCall) {
+            if ($arrayToFluentCall->getClass() !== $factoryMethod->getNewClass()) {
                 continue;
             }
 
-            return $this->replaceArrayToFluentMethodCalls($node, $factoryMethod->getPosition(), $arraysToFluentCall);
+            return $this->replaceArrayToFluentMethodCalls($node, $factoryMethod->getPosition(), $arrayToFluentCall);
         }
 
         return null;

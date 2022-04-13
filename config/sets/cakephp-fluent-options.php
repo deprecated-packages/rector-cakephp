@@ -8,8 +8,8 @@ use Rector\CakePHP\ValueObject\ArrayToFluentCall;
 use Rector\CakePHP\ValueObject\FactoryMethod;
 use Rector\Config\RectorConfig;
 
-return static function (RectorConfig $containerConfigurator): void {
-    $services = $containerConfigurator->services();
+return static function (RectorConfig $rectorConfig): void {
+    $services = $rectorConfig->services();
 
     $services->set(ArrayToFluentCallRector::class)
         ->configure([

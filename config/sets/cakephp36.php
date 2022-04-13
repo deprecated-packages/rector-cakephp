@@ -10,8 +10,8 @@ use Rector\Renaming\ValueObject\MethodCallRename;
 use Rector\Transform\Rector\Assign\PropertyFetchToMethodCallRector;
 use Rector\Transform\ValueObject\PropertyFetchToMethodCall;
 
-return static function (RectorConfig $containerConfigurator): void {
-    $services = $containerConfigurator->services();
+return static function (RectorConfig $rectorConfig): void {
+    $services = $rectorConfig->services();
 
     # source: https://book.cakephp.org/3.0/en/appendices/3-6-migration-guide.html
     $services->set(RenameMethodRector::class)

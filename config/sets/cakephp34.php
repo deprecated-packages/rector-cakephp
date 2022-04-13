@@ -17,8 +17,8 @@ use Rector\Transform\ValueObject\PropertyFetchToMethodCall;
 use Rector\Visibility\Rector\ClassMethod\ChangeMethodVisibilityRector;
 use Rector\Visibility\ValueObject\ChangeMethodVisibility;
 
-return static function (RectorConfig $containerConfigurator): void {
-    $services = $containerConfigurator->services();
+return static function (RectorConfig $rectorConfig): void {
+    $services = $rectorConfig->services();
 
     $services->set(PropertyFetchToMethodCallRector::class)
         ->configure([

@@ -14,8 +14,8 @@ use Rector\Transform\ValueObject\MethodCallToAnotherMethodCallWithArguments;
 use Rector\Transform\ValueObject\PropertyFetchToMethodCall;
 
 # source: https://book.cakephp.org/4.next/en/appendices/4-3-migration-guide.html
-return static function (RectorConfig $containerConfigurator): void {
-    $services = $containerConfigurator->services();
+return static function (RectorConfig $rectorConfig): void {
+    $services = $rectorConfig->services();
 
     $services->set(RenameMethodRector::class)
         ->configure([new MethodCallRename('Cake\Controller\Component', 'shutdown', 'afterFilter')]);

@@ -6,7 +6,7 @@ use Rector\CakePHP\Set\CakePHPLevelSetList;
 use Rector\CakePHP\Set\CakePHPSetList;
 use Rector\Config\RectorConfig;
 
-return static function (RectorConfig $containerConfigurator): void {
-    $containerConfigurator->import(CakePHPSetList::CAKEPHP_43);
-    $containerConfigurator->import(CakePHPLevelSetList::UP_TO_CAKEPHP_42);
+return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(CakePHPSetList::CAKEPHP_43);
+    $rectorConfig->import(CakePHPLevelSetList::UP_TO_CAKEPHP_42);
 };

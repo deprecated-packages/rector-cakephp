@@ -15,8 +15,8 @@ use Rector\Transform\ValueObject\MethodCallToAnotherMethodCallWithArguments;
 use Rector\Transform\ValueObject\PropertyFetchToMethodCall;
 
 # source: https://book.cakephp.org/3.0/en/appendices/3-7-migration-guide.html
-return static function (RectorConfig $containerConfigurator): void {
-    $services = $containerConfigurator->services();
+return static function (RectorConfig $rectorConfig): void {
+    $services = $rectorConfig->services();
 
     $services->set(RenameMethodRector::class)
         ->configure([

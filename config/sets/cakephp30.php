@@ -7,8 +7,8 @@ use Rector\CakePHP\Rector\Namespace_\AppUsesStaticCallToUseStatementRector;
 use Rector\Config\RectorConfig;
 use Rector\Renaming\Rector\Name\RenameClassRector;
 
-return static function (RectorConfig $containerConfigurator): void {
-    $services = $containerConfigurator->services();
+return static function (RectorConfig $rectorConfig): void {
+    $services = $rectorConfig->services();
 
     # @see https://github.com/cakephp/upgrade/tree/master/src/Shell/Task
     $services->set(AppUsesStaticCallToUseStatementRector::class);

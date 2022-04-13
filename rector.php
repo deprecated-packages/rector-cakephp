@@ -9,8 +9,8 @@ use Rector\Php55\Rector\String_\StringClassNameToClassConstantRector;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
 
-return static function (RectorConfig $containerConfigurator): void {
-    $parameters = $containerConfigurator->parameters();
+return static function (RectorConfig $rectorConfig): void {
+    $parameters = $rectorConfig->parameters();
 
     $parameters->set(Option::AUTO_IMPORT_NAMES, true);
     $parameters->set(Option::PATHS, [__DIR__ . '/src', __DIR__ . '/tests']);
@@ -21,7 +21,8 @@ return static function (RectorConfig $containerConfigurator): void {
         StringClassNameToClassConstantRector::class => [__DIR__ . '/config'],
     ]);
 
-    $containerConfigurator->import(LevelSetList::UP_TO_PHP_81);
-    $containerConfigurator->import(SetList::DEAD_CODE);
-    $containerConfigurator->import(SetList::CODE_QUALITY);
+    $rectorConfig->import(LevelSetList::UP_TO_PHP_81);
+    $rectorConfig->import(SetList::DEAD_CODE);
+    $rectorConfig->import(SetList::CODE_QUALITY);
+    $rectorConfig->import(SetList::NAMING);
 };
