@@ -13,17 +13,15 @@ use Rector\Config\RectorConfig;
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->import(__DIR__ . '/../../../../../config/config.php');
 
-    $services = $rectorConfig->services();
-    $services->set(ArrayToFluentCallRector::class)
-        ->configure([
-            ArrayToFluentCallRector::ARRAYS_TO_FLUENT_CALLS => [
-                new ArrayToFluentCall(ConfigurableClass::class, [
-                    'name' => 'setName',
-                    'size' => 'setSize',
-                ]),
-            ],
-            ArrayToFluentCallRector::FACTORY_METHODS => [
-                new FactoryMethod(FactoryClass::class, 'buildClass', ConfigurableClass::class, 2),
-            ],
-        ]);
+    $rectorConfig->ruleWithConfiguration(ArrayToFluentCallRector::class, [
+        ArrayToFluentCallRector::ARRAYS_TO_FLUENT_CALLS => [
+            new ArrayToFluentCall(ConfigurableClass::class, [
+                'name' => 'setName',
+                'size' => 'setSize',
+            ]),
+        ],
+        ArrayToFluentCallRector::FACTORY_METHODS => [
+            new FactoryMethod(FactoryClass::class, 'buildClass', ConfigurableClass::class, 2),
+        ],
+    ]);
 };

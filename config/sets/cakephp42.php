@@ -10,14 +10,13 @@ use Rector\Renaming\ValueObject\MethodCallRename;
 
 # source: https://book.cakephp.org/4/en/appendices/4-2-migration-guide.html
 return static function (RectorConfig $rectorConfig): void {
-    $services = $rectorConfig->services();
+    $rectorConfig->ruleWithConfiguration(RenameClassRector::class, [
+        'Cake\Core\Exception\Exception' => 'Cake\Core\Exception\CakeException',
+        'Cake\Database\Exception' => 'Cake\Database\Exception\DatabaseException',
+    ]);
 
-    $services->set(RenameClassRector::class)
-        ->configure([
-            'Cake\Core\Exception\Exception' => 'Cake\Core\Exception\CakeException',
-            'Cake\Database\Exception' => 'Cake\Database\Exception\DatabaseException',
-        ]);
-
-    $services->set(RenameMethodRector::class)
-        ->configure([new MethodCallRename('Cake\ORM\Behavior', 'getTable', 'table')]);
+    $rectorConfig->ruleWithConfiguration(
+        RenameMethodRector::class,
+        [new MethodCallRename('Cake\ORM\Behavior', 'getTable', 'table')]
+    );
 };
