@@ -11,21 +11,19 @@ use Rector\Config\RectorConfig;
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->import(__DIR__ . '/../../../../../config/config.php');
 
-    $services = $rectorConfig->services();
-    $services->set(ModalToGetSetRector::class)
-        ->configure([
+    $rectorConfig->ruleWithConfiguration(ModalToGetSetRector::class, [
 
-            new ModalToGetSet(SomeModelType::class, 'config', null, null, 2, 'array'),
-            new ModalToGetSet(
-                SomeModelType::class,
-                'customMethod',
-                'customMethodGetName',
-                'customMethodSetName',
-                2,
-                'array'
-            ),
-            new ModalToGetSet(SomeModelType::class, 'makeEntity', 'createEntity', 'generateEntity'),
-            new ModalToGetSet(SomeModelType::class, 'method'),
+        new ModalToGetSet(SomeModelType::class, 'config', null, null, 2, 'array'),
+        new ModalToGetSet(
+            SomeModelType::class,
+            'customMethod',
+            'customMethodGetName',
+            'customMethodSetName',
+            2,
+            'array'
+        ),
+        new ModalToGetSet(SomeModelType::class, 'makeEntity', 'createEntity', 'generateEntity'),
+        new ModalToGetSet(SomeModelType::class, 'method'),
 
-        ]);
+    ]);
 };

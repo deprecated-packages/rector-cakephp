@@ -15,34 +15,34 @@ use Rector\Transform\ValueObject\PropertyFetchToMethodCall;
 
 # source: https://book.cakephp.org/4.next/en/appendices/4-3-migration-guide.html
 return static function (RectorConfig $rectorConfig): void {
-    $services = $rectorConfig->services();
+    $rectorConfig->ruleWithConfiguration(
+        RenameMethodRector::class,
+        [new MethodCallRename('Cake\Controller\Component', 'shutdown', 'afterFilter')]
+    );
 
-    $services->set(RenameMethodRector::class)
-        ->configure([new MethodCallRename('Cake\Controller\Component', 'shutdown', 'afterFilter')]);
+    $rectorConfig->ruleWithConfiguration(PropertyFetchToMethodCallRector::class, [
+        new PropertyFetchToMethodCall('Cake\Network\Socket', 'connected', 'isConnected'),
+        new PropertyFetchToMethodCall('Cake\Network\Socket', 'encrypted', 'isEncrypted'),
+        new PropertyFetchToMethodCall('Cake\Network\Socket', 'lastError', 'lastError'),
+    ]);
 
-    $services->set(PropertyFetchToMethodCallRector::class)
-        ->configure([
-            new PropertyFetchToMethodCall('Cake\Network\Socket', 'connected', 'isConnected'),
-            new PropertyFetchToMethodCall('Cake\Network\Socket', 'encrypted', 'isEncrypted'),
-            new PropertyFetchToMethodCall('Cake\Network\Socket', 'lastError', 'lastError'),
-        ]);
+    $rectorConfig->ruleWithConfiguration(
+        RemoveIntermediaryMethodRector::class,
+        [new RemoveIntermediaryMethod('getTableLocator', 'get', 'fetchTable')]
+    );
 
-    $services->set(RemoveIntermediaryMethodRector::class)
-        ->configure([new RemoveIntermediaryMethod('getTableLocator', 'get', 'fetchTable')]);
-
-    $services->set(MethodCallToAnotherMethodCallWithArgumentsRector::class)
-        ->configure([
-            new MethodCallToAnotherMethodCallWithArguments(
-                'Cake\Database\DriverInterface',
-                'supportsQuoting',
-                'supports',
-                ['quote'],
-            ),
-            new MethodCallToAnotherMethodCallWithArguments(
-                'Cake\Database\DriverInterface',
-                'supportsSavepoints',
-                'supports',
-                ['savepoint']
-            ),
-        ]);
+    $rectorConfig->ruleWithConfiguration(MethodCallToAnotherMethodCallWithArgumentsRector::class, [
+        new MethodCallToAnotherMethodCallWithArguments(
+            'Cake\Database\DriverInterface',
+            'supportsQuoting',
+            'supports',
+            ['quote'],
+        ),
+        new MethodCallToAnotherMethodCallWithArguments(
+            'Cake\Database\DriverInterface',
+            'supportsSavepoints',
+            'supports',
+            ['savepoint']
+        ),
+    ]);
 };

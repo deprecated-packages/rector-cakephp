@@ -11,28 +11,23 @@ use Rector\Renaming\Rector\Name\RenameClassRector;
 use Rector\Renaming\ValueObject\MethodCallRename;
 
 return static function (RectorConfig $rectorConfig): void {
-    $services = $rectorConfig->services();
+    $rectorConfig->ruleWithConfiguration(RenameClassRector::class, [
+        'Cake\Routing\Exception\RedirectException' => 'Cake\Http\Exception\RedirectException',
+        'Cake\Database\Expression\Comparison' => 'Cake\Database\Expression\ComparisonExpression',
+    ]);
 
-    $services->set(RenameClassRector::class)
-        ->configure([
-            'Cake\Routing\Exception\RedirectException' => 'Cake\Http\Exception\RedirectException',
-            'Cake\Database\Expression\Comparison' => 'Cake\Database\Expression\ComparisonExpression',
-        ]);
+    $rectorConfig->ruleWithConfiguration(RenameMethodRector::class, [
+        new MethodCallRename('Cake\Database\Schema\TableSchema', 'getPrimary', 'getPrimaryKey'),
+        new MethodCallRename('Cake\Database\Type\DateTimeType', 'setTimezone', 'setDatabaseTimezone'),
+        new MethodCallRename('Cake\Database\Expression\QueryExpression', 'or_', 'or'),
+        new MethodCallRename('Cake\Database\Expression\QueryExpression', 'and_', 'and'),
+        new MethodCallRename('Cake\View\Form\ContextInterface', 'primaryKey', 'getPrimaryKey'),
+        new MethodCallRename(
+            'Cake\Http\Middleware\CsrfProtectionMiddleware',
+            'whitelistCallback',
+            'skipCheckCallback'
+        ),
+    ]);
 
-    $services->set(RenameMethodRector::class)
-        ->configure([
-            new MethodCallRename('Cake\Database\Schema\TableSchema', 'getPrimary', 'getPrimaryKey'),
-            new MethodCallRename('Cake\Database\Type\DateTimeType', 'setTimezone', 'setDatabaseTimezone'),
-            new MethodCallRename('Cake\Database\Expression\QueryExpression', 'or_', 'or'),
-            new MethodCallRename('Cake\Database\Expression\QueryExpression', 'and_', 'and'),
-            new MethodCallRename('Cake\View\Form\ContextInterface', 'primaryKey', 'getPrimaryKey'),
-            new MethodCallRename(
-                'Cake\Http\Middleware\CsrfProtectionMiddleware',
-                'whitelistCallback',
-                'skipCheckCallback'
-            ),
-        ]);
-
-    $services->set(ModalToGetSetRector::class)
-        ->configure([new ModalToGetSet('Cake\Form\Form', 'schema')]);
+    $rectorConfig->ruleWithConfiguration(ModalToGetSetRector::class, [new ModalToGetSet('Cake\Form\Form', 'schema')]);
 };
