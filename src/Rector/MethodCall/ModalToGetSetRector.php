@@ -82,12 +82,12 @@ CODE_SAMPLE
      */
     public function refactor(Node $node): ?Node
     {
-        $unprefixedMethodToGetSet = $this->matchTypeAndMethodName($node);
-        if (! $unprefixedMethodToGetSet instanceof ModalToGetSet) {
+        $modalToGetSet = $this->matchTypeAndMethodName($node);
+        if (! $modalToGetSet instanceof ModalToGetSet) {
             return null;
         }
 
-        $newName = $this->resolveNewMethodNameByCondition($node, $unprefixedMethodToGetSet);
+        $newName = $this->resolveNewMethodNameByCondition($node, $modalToGetSet);
         $node->name = new Identifier($newName);
 
         return $node;
