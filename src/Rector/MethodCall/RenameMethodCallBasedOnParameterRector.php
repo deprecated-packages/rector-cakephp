@@ -77,12 +77,12 @@ CODE_SAMPLE
      */
     public function refactor(Node $node): ?Node
     {
-        $callWithParamRename = $this->matchTypeAndMethodName($node);
-        if (! $callWithParamRename instanceof RenameMethodCallBasedOnParameter) {
+        $renameMethodCallBasedOnParameter = $this->matchTypeAndMethodName($node);
+        if (! $renameMethodCallBasedOnParameter instanceof RenameMethodCallBasedOnParameter) {
             return null;
         }
 
-        $node->name = new Identifier($callWithParamRename->getNewMethod());
+        $node->name = new Identifier($renameMethodCallBasedOnParameter->getNewMethod());
 
         return $node;
     }
