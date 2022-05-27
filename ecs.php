@@ -16,6 +16,4 @@ return static function (ECSConfig $ecsConfig): void {
         // breaks annotated code - removed on symplify dev-main
         \PhpCsFixer\Fixer\ReturnNotation\ReturnAssignmentFixer::class,
     ]);
-
-    $ecsConfig->lineEnding("\n");
 };
