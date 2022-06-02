@@ -61,5 +61,10 @@ final class CakePHPSetList implements SetListInterface
     /**
      * @var string
      */
+    final public const CAKEPHP_44 = __DIR__ . '/../../config/sets/cakephp44.php';
+
+    /**
+     * @var string
+     */
     final public const CAKEPHP_FLUENT_OPTIONS = __DIR__ . '/../../config/sets/cakephp-fluent-options.php';
 }
