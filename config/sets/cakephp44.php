@@ -3,8 +3,9 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-
+use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Renaming\Rector\Name\RenameClassRector;
+use Rector\Renaming\ValueObject\MethodCallRename;
 
 # @see https://book.cakephp.org/4/en/appendices/4-4-migration-guide.html
 return static function (RectorConfig $rectorConfig): void {
@@ -15,4 +16,9 @@ return static function (RectorConfig $rectorConfig): void {
         'Cake\TestSuite\Stub\MissingConsoleInputException' => 'Cake\Console\TestSuite\MissingConsoleInputException',
         'Cake\TestSuite\HttpClientTrait' => 'Cake\Http\TestSuite\HttpClientTrait',
     ]);
+
+    $rectorConfig->ruleWithConfiguration(
+        RenameMethodRector::class,
+        [new MethodCallRename('Cake\Database\Query', 'newExpr', 'expr')]
+    );
 };
