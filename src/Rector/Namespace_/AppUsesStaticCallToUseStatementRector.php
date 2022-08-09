@@ -38,7 +38,7 @@ App::uses('NotificationListener', 'Event');
 
 CakeEventManager::instance()->attach(new NotificationListener());
 CODE_SAMPLE
-,
+                ,
                 <<<'CODE_SAMPLE'
 use Event\NotificationListener;
 
