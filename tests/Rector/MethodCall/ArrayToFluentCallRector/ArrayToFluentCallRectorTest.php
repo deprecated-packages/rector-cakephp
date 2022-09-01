@@ -6,7 +6,6 @@ namespace Rector\CakePHP\Tests\Rector\MethodCall\ArrayToFluentCallRector;
 
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
-use Symplify\SmartFileSystem\SmartFileInfo;
 
 final class ArrayToFluentCallRectorTest extends AbstractRectorTestCase
 {

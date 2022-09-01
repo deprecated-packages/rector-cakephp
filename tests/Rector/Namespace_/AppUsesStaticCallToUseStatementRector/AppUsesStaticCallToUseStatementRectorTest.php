@@ -6,7 +6,6 @@ namespace Rector\CakePHP\Tests\Rector\Namespace_\AppUsesStaticCallToUseStatement
 
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
-use Symplify\SmartFileSystem\SmartFileInfo;
 
 final class AppUsesStaticCallToUseStatementRectorTest extends AbstractRectorTestCase
 {

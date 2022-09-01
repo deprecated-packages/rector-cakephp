@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\CakePHP\Tests\Rector\MethodCall\RenameMethodCallBasedOnParameterRector;
 
-use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
-use Symplify\SmartFileSystem\SmartFileInfo;
 
 final class RenameMethodCallBasedOnParameterRectorTest extends AbstractRectorTestCase
 {

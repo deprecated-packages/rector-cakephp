@@ -6,7 +6,6 @@ namespace Rector\CakePHP\Tests\Rector\MethodCall\RemoveIntermediaryMethodRector;
 
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
-use Symplify\SmartFileSystem\SmartFileInfo;
 
 final class RemoveIntermediaryMethodRectorTest extends AbstractRectorTestCase
 {
