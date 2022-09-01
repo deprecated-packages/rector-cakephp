@@ -16,7 +16,7 @@ final class RenameMethodCallBasedOnParameterRectorTest extends AbstractRectorTes
         $this->doTestFile($filePath);
     }
 
-    public function provideData(): iterable
+    public function provideData(): \Iterator
     {
         return $this->yieldFilePathsFromDirectory(__DIR__ . '/Fixture');
     }
