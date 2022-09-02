@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\CakePHP\Tests\Rector\MethodCall\RenameMethodCallBasedOnParameterRector;
 
+use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 
 final class RenameMethodCallBasedOnParameterRectorTest extends AbstractRectorTestCase
@@ -16,9 +17,9 @@ final class RenameMethodCallBasedOnParameterRectorTest extends AbstractRectorTes
         $this->doTestFile($filePath);
     }
 
-    public function provideData(): \Iterator
+    public function provideData(): Iterator
     {
-        return $this->yieldFilePathsFromDirectory(__DIR__ . '/Fixture');
+        return $this->yieldFilesFromDirectory(__DIR__ . '/Fixture');
     }
 
     public function provideConfigFilePath(): string
